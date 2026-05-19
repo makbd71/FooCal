@@ -1,0 +1,296 @@
+/* ── Reset & Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #f7f6f3;
+  --surface: #ffffff;
+  --surface2: #f0efe9;
+  --border: #e2e0d8;
+  --border2: #c8c6bc;
+  --text: #1a1917;
+  --text2: #6b6960;
+  --text3: #a09e96;
+  --green: #3B6D11;
+  --green-bg: #eaf3de;
+  --amber: #BA7517;
+  --red: #A32D2D;
+  --blue-bg: #e6f1fb;
+  --blue-text: #0c447c;
+  --radius: 10px;
+  --radius-lg: 14px;
+}
+
+body {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  padding: 0 0 4rem;
+}
+
+/* ── Page layout ── */
+.page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+}
+
+/* ── Header ── */
+.app-header {
+  margin-bottom: 2rem;
+}
+.app-header h1 {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: var(--text);
+}
+.subtitle {
+  font-size: 14px;
+  color: var(--text2);
+  margin-top: 4px;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* ── Total card ── */
+.total-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.total-label {
+  font-size: 12px;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--text2);
+  margin-bottom: 5px;
+}
+.total-num {
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text);
+}
+.total-unit {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text2);
+}
+
+.goal-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+.goal-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.goal-row input {
+  width: 80px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: right;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 8px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+.goal-unit {
+  font-size: 13px;
+  color: var(--text2);
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+.bar-track {
+  height: 6px;
+  width: 200px;
+  background: var(--surface2);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  border-radius: 9999px;
+  background: var(--green);
+  transition: width .4s ease, background .3s ease;
+}
+.remaining-lbl {
+  font-size: 12px;
+  color: var(--text2);
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* ── Form card ── */
+.form-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.bottom-row {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: 12px;
+  align-items: flex-end;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.field label {
+  font-size: 11px;
+  font-weight: 600;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--text2);
+}
+.manual-note {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--text3);
+  font-size: 11px;
+}
+select, input[type="number"], input[type="text"] {
+  font-size: 14px;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 8px 10px;
+  width: 100%;
+  outline: none;
+  transition: border-color .15s;
+  appearance: auto;
+}
+select:focus, input:focus {
+  border-color: var(--border2);
+  box-shadow: 0 0 0 3px rgba(0,0,0,0.05);
+}
+select:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.add-btn {
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  cursor: pointer;
+  padding: 9px 20px;
+  background: var(--text);
+  color: var(--bg);
+  border: none;
+  border-radius: 7px;
+  white-space: nowrap;
+  transition: opacity .15s, transform .1s;
+}
+.add-btn:hover { opacity: 0.82; }
+.add-btn:active { transform: scale(0.97); }
+
+.err-msg {
+  margin-top: 8px;
+  font-size: 13px;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  color: var(--red);
+}
+
+/* ── Table ── */
+.table-wrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+thead th {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--text2);
+  text-align: left;
+  padding: 12px 14px;
+  background: var(--surface2);
+  border-bottom: 1px solid var(--border);
+}
+th.r, td.r { text-align: right; }
+tbody td {
+  padding: 12px 14px;
+  color: var(--text);
+  vertical-align: middle;
+  border-bottom: 1px solid var(--border);
+}
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: #fafaf7; }
+tfoot td {
+  padding: 12px 14px;
+  font-weight: 600;
+  border-top: 1px solid var(--border2);
+  background: var(--surface2);
+}
+.foot-label { color: var(--text2); font-size: 13px; }
+
+.brand-badge {
+  display: inline-block;
+  font-size: 11px;
+  padding: 2px 9px;
+  border-radius: 9999px;
+  font-weight: 600;
+  background: var(--blue-bg);
+  color: var(--blue-text);
+}
+.del-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text3);
+  font-size: 18px;
+  line-height: 1;
+  padding: 2px 4px;
+  transition: color .15s;
+}
+.del-btn:hover { color: var(--red); }
+
+.empty-msg {
+  font-size: 14px;
+  color: var(--text3);
+  text-align: center;
+  padding: 32px 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 560px) {
+  .form-grid { grid-template-columns: 1fr; }
+  .bottom-row { grid-template-columns: 1fr 1fr; }
+  .bottom-row .field:last-child { grid-column: 1 / -1; }
+  .total-card { flex-direction: column; align-items: flex-start; }
+  .goal-side { align-items: flex-start; }
+  .bar-track { width: 100%; }
+}
