@@ -27,7 +27,9 @@ going to the gym, or just being health conscious.
 
 ## Live Demo
 
-Coming Soon - Netlify Link
+https://foocal.netlify.app
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d2e5cf92-46d8-4099-b4bc-95447631a4c3/deploy-status)](https://app.netlify.com/projects/foocal/deploys)
 
 ## Built With
 
